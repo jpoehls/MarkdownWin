@@ -22,8 +22,10 @@ We use [MarkdownSharp](http://code.google.com/p/markdownsharp/) to render the li
 **Dev Requirements**  
 VS 2010, NuGet
 
+Run `psake.bat` to build for release and update the `/dist` folder.
+
 **Notes**
 
-*The icon was borrowed without permission from (dashkards.com)[http://dashkards.com].*
+*The icon was borrowed without permission from [dashkards.com](http://dashkards.com).*
 
-*ICO created with (converticon.com)[http://converticon.com].*
+*ICO created with [converticon.com](http://converticon.com).*
