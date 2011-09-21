@@ -19,3 +19,9 @@ We use [MarkdownSharp](http://code.google.com/p/markdownsharp/) to render the li
 
 **Dev Requirements**  
 VS 2010, NuGet
+
+**Notes**
+
+*The icon was borrowed without permission from (dashkards.com)[http://dashkards.com].*
+
+*ICO created with (converticon.com)[http://converticon.com].*

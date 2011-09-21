@@ -30,6 +30,7 @@ namespace MarkdownWin
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuOpenFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,10 +45,10 @@ namespace MarkdownWin
             this.mnuFloatWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMarkdownGuide = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.browser = new System.Windows.Forms.WebBrowser();
-            this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -165,6 +166,18 @@ namespace MarkdownWin
             this.mnuMarkdownGuide.Text = "&Markdown Guide";
             this.mnuMarkdownGuide.Click += new System.EventHandler(this.mnuMarkdownGuide_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(185, 6);
+            // 
+            // mnuAbout
+            // 
+            this.mnuAbout.Name = "mnuAbout";
+            this.mnuAbout.Size = new System.Drawing.Size(188, 22);
+            this.mnuAbout.Text = "&About MarkdownWin";
+            this.mnuAbout.Click += new System.EventHandler(this.mnuAbout_Click);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -178,18 +191,6 @@ namespace MarkdownWin
             this.browser.Size = new System.Drawing.Size(465, 339);
             this.browser.TabIndex = 3;
             // 
-            // mnuAbout
-            // 
-            this.mnuAbout.Name = "mnuAbout";
-            this.mnuAbout.Size = new System.Drawing.Size(188, 22);
-            this.mnuAbout.Text = "&About MarkdownWin";
-            this.mnuAbout.Click += new System.EventHandler(this.mnuAbout_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(185, 6);
-            // 
             // MainForm
             // 
             this.AllowDrop = true;
@@ -198,9 +199,9 @@ namespace MarkdownWin
             this.ClientSize = new System.Drawing.Size(465, 363);
             this.Controls.Add(this.browser);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.ShowIcon = false;
             this.Text = "MarkdownWin";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Watcher_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Watcher_DragEnter);
