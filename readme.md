@@ -2,6 +2,8 @@
 
 *A [Markdown](http://daringfireball.net/projects/markdown/) editor with live-preview for Windows.*
 
+**Download the binary by tapping [right here](https://github.com/jpoehls/MarkdownWin/raw/master/dist/MarkdownWin.exe).**
+
 I built this because [MarkedApp](http://www.markedapp.com) isn't available for Windows.
 Like MarkedApp, MarkdownWin will monitor a file for changes and keep the live preview
 in sync with your file. You can use whatever editor you want.
