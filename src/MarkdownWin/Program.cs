@@ -22,13 +22,13 @@ namespace MarkdownWin
             }
         }
 
-        private static void RunForm() {
+        static void RunForm() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
 
-        private static void RunCli(string[] args) {
+        static void RunCli(string[] args) {
             const string inArg = "in";
             const string outArg = "out";
             const string cssArg = "css";
@@ -37,38 +37,46 @@ namespace MarkdownWin
             try {
                 var parsedArgs = ParseArgsRaw(args);
 
-                if (parsedArgs.ContainsKey(helpArg)) {
+                if (parsedArgs.ContainsKey(helpArg))
                     PrintCliHelp();
-                } else {
-                    var inPath = parsedArgs[inArg][0];
-                    var outPath = parsedArgs[outArg][0];
+                else {
+                    var inPath = GetAbsPath(parsedArgs[inArg][0]);
+                    var outPath = GetAbsPath(GetOutPath(inPath, outArg, parsedArgs));
 
                     var mkDown = new Markdown();
-                    var result = mkDown.Transform(File.ReadAllText(GetAbsPath(inPath)));
+                    var result = mkDown.Transform(File.ReadAllText(inPath));
 
-                    File.WriteAllText(GetAbsPath(outPath), result, System.Text.Encoding.UTF8);
+                    File.WriteAllText((outPath), result, System.Text.Encoding.UTF8);
                 }
             } catch (Exception ex) {
                 PrintCliHelp(ex.Message);
             }
         }
 
-        private static string GetAbsPath(string path) {
-            if (Path.IsPathRooted(path)) {
-                return path;
-            } else {
-                return Path.Combine(Environment.CurrentDirectory, path);
+        private static string GetOutPath(string inPath, string outArg, Dictionary<string, IList<string>> parsedArgs) {
+            if (parsedArgs.ContainsKey(outArg))
+                return parsedArgs[outArg][0];
+            else {
+                var fi = new FileInfo(inPath);
+                return fi.FullName.Substring(0, fi.FullName.Length - fi.Extension.Length) + ".html";
             }
         }
 
-        private static void PrintCliHelp(string errorMsg = "") {
+        static string GetAbsPath(string path) {
+            if (Path.IsPathRooted(path))
+                return path;
+            else
+                return Path.Combine(Environment.CurrentDirectory, path);
+        }
+
+        static void PrintCliHelp(string errorMsg = "") {
             if (errorMsg != "")
                 Console.WriteLine("Error: " + errorMsg);
 
             Console.WriteLine("Usage: -in <inputPath> -out <outputPath> [-css <cssStyleSheet>]");
         }
 
-        private static Dictionary<string, IList<string>> ParseArgsRaw(string[] args) {
+        static Dictionary<string, IList<string>> ParseArgsRaw(string[] args) {
             var parsedArgs = new Dictionary<string, IList<string>>();
 
             var prev = string.Empty;
