@@ -5,16 +5,13 @@ using System.Collections.Generic;
 using MarkdownSharp;
 using System.IO;
 
-namespace MarkdownWin
-{
-    static class Program
-    {
+namespace MarkdownWin {
+    static class Program {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             if (args != null && args.Length > 0) {
                 RunCli(args);
             } else {
@@ -31,7 +28,7 @@ namespace MarkdownWin
         static void RunCli(string[] args) {
             const string inArg = "in";
             const string outArg = "out";
-            const string cssArg = "css";
+            const string rawArg = "raw";
             const string helpArg = "help";
 
             try {
@@ -46,7 +43,10 @@ namespace MarkdownWin
                     var mkDown = new Markdown();
                     var result = mkDown.Transform(File.ReadAllText(inPath));
 
-                    File.WriteAllText((outPath), result, System.Text.Encoding.UTF8);
+                    if (!parsedArgs.ContainsKey(rawArg))
+                        File.WriteAllText((outPath), Stylizer.Run(result), System.Text.Encoding.UTF8);
+                    else
+                        File.WriteAllText((outPath), result, System.Text.Encoding.UTF8);
                 }
             } catch (Exception ex) {
                 PrintCliHelp(ex.Message);
@@ -73,7 +73,10 @@ namespace MarkdownWin
             if (errorMsg != "")
                 Console.WriteLine("Error: " + errorMsg);
 
-            Console.WriteLine("Usage: -in <inputPath> -out <outputPath> [-css <cssStyleSheet>]");
+            Console.WriteLine("Usage: -in <inputPath> [-out <outputPath>] [-raw]");
+            Console.WriteLine("\t-in:  Path to the markdown file");
+            Console.WriteLine("\t-out: (Optional) Path to the output html file (uses <in>.html by default)");
+            Console.WriteLine("\t-raw: (Optional) Don't stylize the output.");
         }
 
         static Dictionary<string, IList<string>> ParseArgsRaw(string[] args) {
