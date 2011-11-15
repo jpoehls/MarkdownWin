@@ -74,9 +74,9 @@ namespace MarkdownWin {
                 Console.WriteLine("Error: " + errorMsg);
 
             Console.WriteLine("Usage: -in <inputPath> [-out <outputPath>] [-raw]");
-            Console.WriteLine("\t-in:  Path to the markdown file");
-            Console.WriteLine("\t-out: (Optional) Path to the output html file (uses <in>.html by default)");
-            Console.WriteLine("\t-raw: (Optional) Don't stylize the output.");
+            Console.WriteLine("  -in:  Path to the markdown file");
+            Console.WriteLine("  -out: (Optional) Path to the output html file (uses <in>.html by default)");
+            Console.WriteLine("  -raw: (Optional) Don't stylize the output.");
         }
 
         static Dictionary<string, IList<string>> ParseArgsRaw(string[] args) {
