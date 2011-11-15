@@ -1,5 +1,7 @@
 ## MarkdownWin
 
+-----------------------------------------------------
+
 *A [Markdown](http://daringfireball.net/projects/markdown/) editor with live-preview for Windows.*
 
 **Download the binary by tapping [right here](https://github.com/jpoehls/MarkdownWin/raw/master/dist/MarkdownWin.exe).**
