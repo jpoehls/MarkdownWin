@@ -19,7 +19,7 @@ We use [MarkdownSharp](http://code.google.com/p/markdownsharp/) to render the li
 * Print it with `CTRL+P`.
 * Float the preview window on top of other applications for easy viewing.
 
-![Screenshot](https://raw.github.com/jpoehls/MarkdownWin/master/screenshot.png)
+![Screenshot](https://raw.github.com/cynosura/MarkdownWin/master/screenshot.png)
 
 **Dev Requirements**  
 VS 2010, NuGet
