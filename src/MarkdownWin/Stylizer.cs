@@ -8,7 +8,9 @@ using System.IO;
 namespace MarkdownWin {
     class Stylizer {
         public static string Run(string html, string cssOverridePath = "") {
-            const string htmlTemplate = "<html><head><style type=\"text/css\">{0}</style></head><body>{1}</body></html>";
+            const string htmlTemplate = 
+                "<html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"><style type=\"text/css\">{0}</style></head><body>{1}</body></html>";
+            
             string stylesheet;
 
             if (String.IsNullOrEmpty(cssOverridePath)) {
