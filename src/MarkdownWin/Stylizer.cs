@@ -9,7 +9,7 @@ namespace MarkdownWin {
     class Stylizer {
         public static string Run(string html, string cssOverridePath = "") {
             const string htmlTemplate = 
-                "<html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"><style type=\"text/css\">{0}</style></head><body>{1}</body></html>";
+                "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" /><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"><style type=\"text/css\">{0}</style></head><body>{1}</body></html>";
             
             string stylesheet;
 
