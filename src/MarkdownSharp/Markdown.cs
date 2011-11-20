@@ -1516,15 +1516,44 @@ namespace MarkdownSharp
             return sb.ToString();
         }
 
-        private static Regex _codeEncoder = new Regex(@"&|<|>|\\|\*|_|\{|\}|\[|\]", RegexOptions.Compiled);
-
         /// <summary>
         /// Encode/escape certain Markdown characters inside code blocks and spans where they are literals
         /// </summary>
         private string EncodeCode(string code)
         {
-            return _codeEncoder.Replace(code, EncodeCodeEvaluator);
+            var sb = new StringBuilder(code.Length * 2);
+            
+            Action<char> putc = (c) => sb.Append(c);
+            Action<string> put = (str) => sb.Append(str);
+            
+            foreach (char c in code) {
+                switch (c) {
+                    case '&':
+                        put("&amp;");
+                        continue;
+                    case '<':
+                        put ("&lt;");
+                        continue;
+                    case '>':
+                        put ("&gt;");
+                        continue;
+                    default:
+                        string val = null;
+                        
+                        if (_escapeTable.TryGetValue(c.ToString(), out val))
+                            put(val);
+                        else if((int)c > 255)
+                            sb.AppendFormat("&#{0};", (int)c);
+                        else
+                            putc(c);                     
+
+                        continue;
+                }
+            }
+            return sb.ToString();
         }
+
+
         private string EncodeCodeEvaluator(Match match)
         {
             switch (match.Value)
