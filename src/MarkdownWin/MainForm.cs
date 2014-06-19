@@ -90,20 +90,9 @@ namespace MarkdownWin
 
         private void BrowserDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            const string htmlTemplate = "<html><head><style type=\"text/css\">{0}</style></head><body>{1}</body></html>";
-
             if (browser.Document != null)
             {
-                string stylesheet;
-                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(this.GetType(), "markdown.css"))
-                using (var reader = new StreamReader(stream))
-                {
-                    stylesheet = reader.ReadToEnd();
-                }
-
-                string html = string.Format(htmlTemplate, stylesheet, _pendingPreviewHtml);
-                browser.Document.Write(html);
-
+                browser.Document.Write(Stylizer.Run(_pendingPreviewHtml));
                 Debug.WriteLine("Document Completed and written to.");
             }
         }

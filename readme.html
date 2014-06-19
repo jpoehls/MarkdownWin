@@ -1,0 +1,179 @@
+﻿<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><style type="text/css">@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+
+body
+{
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: #444444;
+    line-height: 1;
+    max-width: 960px;
+    padding: 30px;
+}
+h1, h2, h3
+{
+    font-family: "Open Sans", serif;
+}
+h1, h2, h3, h4
+{
+    color: #111111;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, p
+{
+    margin-bottom: 24px;
+    padding: 0;
+}
+h1
+{
+    font-size: 48px;
+}
+h2
+{
+    font-size: 36px;
+    margin: 24px 0 6px;
+}
+h3
+{
+    font-size: 24px;
+}
+h4
+{
+    font-size: 21px;
+}
+h5
+{
+    font-size: 18px;
+}
+a
+{
+    color: #64B6B1;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+a:hover
+{
+    color: #46433A;
+}
+a:visited
+{
+    color: #CE534D;
+}
+ul, ol
+{
+    padding: 0;
+    margin: 1.2em;
+}
+li
+{
+    line-height: 24px;
+}
+li ul, li ul
+{
+    margin-left: 24px;
+}
+p, ul, ol
+{
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 540px;
+}
+pre
+{
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    padding: 0px 24px;
+    max-width: 800px;
+    white-space: pre-wrap;
+    line-height: 1;
+}
+code
+{
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    line-height: 1;
+    font-size: 13px;
+}
+aside
+{
+    display: block;
+    float: right;
+    width: 390px;
+}
+blockquote
+{
+    border-left: .5em solid #eee;
+    padding: 0 2em;
+    margin-left: 0;
+    max-width: 476px;
+}
+blockquote cite
+{
+    font-size: 14px;
+    line-height: 20px;
+    color: #bfbfbf;
+}
+blockquote cite:before
+{
+    content: '\2014 \00A0';
+}
+
+blockquote p
+{
+    color: #666;
+    max-width: 460px;
+}
+hr
+{
+    width: 540px;
+    text-align: left;
+    margin: 1.2em auto 1.2em 0;
+    color: #EEE;
+    background-color: #EEE;
+    border: 0;
+    height: 1px;
+}
+</style></head><body><h2>MarkdownWin</h2>
+
+<hr />
+
+<p><em>A <a href="http://daringfireball.net/projects/markdown/">Markdown</a> editor and compiler with live-preview for Windows.</em></p>
+
+<p><strong>Download the binary by tapping <a href="https://github.com/jpoehls/MarkdownWin/raw/master/dist/MarkdownWin.exe">right here</a>.</strong></p>
+
+<p>I built this because <a href="http://www.markedapp.com">MarkedApp</a> isn't available for Windows.
+Like MarkedApp, MarkdownWin will monitor a file for changes and keep the live preview
+in sync with your file. You can use whatever editor you want.</p>
+
+<p>We use <a href="http://code.google.com/p/markdownsharp/">MarkdownSharp</a> to render the live preview.</p>
+
+<h3>Features</h3>
+
+<ul>
+<li>Preview your Markdown file live, while you edit it.</li>
+<li>Copy the HTML source to your clipboard with <code>CTRL+C</code>.</li>
+<li>Print it with <code>CTRL+P</code>.</li>
+<li>Float the preview window on top of other applications for easy viewing.</li>
+<li><p>MarkdownWin also to be used as a Markdown build tool via its simple CLI interface:</p>
+
+<pre><code>usage -in &lt;inputPath&gt; [-out &lt;outputPath&gt;] [-raw]
+  -in:  Path to the markdown file
+  -out: (Optional) Path to the output html file (uses &lt;in&gt;.html by default)
+  -raw: (Optional) Don't stylize the output.
+</code></pre></li>
+</ul>
+
+<hr />
+
+<p><img src="https://raw.github.com/cynosura/MarkdownWin/master/screenshot.png" alt="Screenshot" /></p>
+
+<p><strong>Dev Requirements</strong><br />
+VS 2010, NuGet</p>
+
+<p>Run <code>psake.bat</code> to build for release and update the <code>/dist</code> folder.</p>
+
+<p><strong>Notes</strong></p>
+
+<p><em>The icon was borrowed without permission from <a href="http://dashkards.com">dashkards.com</a>.</em></p>
+
+<p><em>ICO created with <a href="http://converticon.com">converticon.com</a>.</em></p>
+</body></html>
